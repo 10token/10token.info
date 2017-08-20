@@ -60,7 +60,11 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     '10token.users.apps.UsersConfig',
+    'tentoken',
+    'csvimport.app.CSVImportConf',
+
     # Your stuff: custom apps go here
+
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -278,14 +282,14 @@ LOGIN_URL = 'account_login'
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
-########## CELERY
-INSTALLED_APPS += ['10token.taskapp.celery.CeleryConfig']
-CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
-if CELERY_BROKER_URL == 'django://':
-    CELERY_RESULT_BACKEND = 'redis://'
-else:
-    CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-########## END CELERY
+# ########## CELERY
+# INSTALLED_APPS += ['10token.taskapp.celery.CeleryConfig']
+# CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
+# if CELERY_BROKER_URL == 'django://':
+#     CELERY_RESULT_BACKEND = 'redis://'
+# else:
+#     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+# ########## END CELERY
 # django-compressor
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ['compressor']

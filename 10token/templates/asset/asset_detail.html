@@ -1,4 +1,4 @@
-{% extends 'asset/base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="asset">
@@ -12,8 +12,6 @@
         <h1>{{ asset.name }}</h1>
         <p>{{ asset.description|linebreaksbr }}</p>
 
-        <a class="btn btn-default" href="{% url 'asset_edit' pk=asset.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-default" href="{% url 'asset_edit' pk=asset.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 
     </div>
 {% endblock %}

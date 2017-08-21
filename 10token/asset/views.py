@@ -13,9 +13,11 @@ from django.utils import timezone
 class assets_list(LoginRequiredMixin, ListView):
     model = Asset
 
-    # slug_field = 'name'
-    # slug_url_kwarg = 'name'
-    #
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
+
+    paginate_by = 100
+
     # def get_context_data(self, **kwargs):
     #     context = super(assets_list, self).get_context_data(**kwargs)
     #     # context['now'] = timezone.now()
@@ -26,8 +28,8 @@ class assets_list(LoginRequiredMixin, ListView):
 class asset_detail(LoginRequiredMixin, DetailView):
     model = Asset
     # These next two lines tell the view to index lookups by username
-    # slug_field = 'name'
-    # slug_url_kwarg = 'name'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
 
 # def asset_detail(request, pk):
 #     asset = get_object_or_404(Asset, pk=pk)

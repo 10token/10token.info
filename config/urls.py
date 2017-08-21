@@ -16,7 +16,8 @@ urlpatterns = [
     url(r'^users/', include('10token.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    #INCLIDE tentoken
+    url(r'^asset/', include('asset.urls', namespace='assets')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

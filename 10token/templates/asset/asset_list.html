@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% for asset in asset_list %}
+
+        <div class="asset">
+
+            <h5><a href="{% url 'assets:detail' asset.id %}">{{ asset.name }}</a></h5>
+            <p>{{ asset.description|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

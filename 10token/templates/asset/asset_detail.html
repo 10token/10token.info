@@ -3,14 +3,17 @@
 {% block content %}
     <div class="asset">
 
-        {% if asset.published_date %}
+        <!-- {% if asset.created_date %}
             <div class="date">
-                {{ asset.published_date }}
+                {{ asset.created_date }}
             </div>
-        {% endif %}
+        {% endif %} -->
 
         <h1>{{ asset.name }}</h1>
         <p>{{ asset.description|linebreaksbr }}</p>
+        <p>token id: {{ asset.token_id }}</p>
+        <p>sender id: {{ asset.sender_id }}</p>
+        <p>{{ asset.created_date }}</p>
 
 
     </div>

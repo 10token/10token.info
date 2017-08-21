@@ -5,9 +5,7 @@
     {% for asset in asset_list %}
 
         <div class="asset">
-          <div class="date"> date:
-              {{ asset.created_date }}
-          </div>
+
             <h5><a href="{% url 'assets:detail' asset.id %}">{{ asset.name }}</a></h5>
             <p>{{ asset.description|linebreaksbr }}</p>
         </div>

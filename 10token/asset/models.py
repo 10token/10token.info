@@ -15,7 +15,7 @@ class Asset(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
 
-            
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -23,8 +23,8 @@ class Asset(models.Model):
     def __str__(self):
         return self.name
 
-
-
+    def get_absolute_url(self):
+        return reverse('assets:detail', kwargs={'name': self.name})
 
 
 

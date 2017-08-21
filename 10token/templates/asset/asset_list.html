@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    {% for asset in assets %}
+        <div class="asset">
+          <div class="date">
+              {{ asset.created_date }}
+          </div>
+            <h5><a href="">{{ asset.name }}</a></h5>
+            <p>{{ asset.description|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

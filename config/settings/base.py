@@ -60,7 +60,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     '10token.users.apps.UsersConfig',
-    'tentoken',
+    'asset',
+    # '10token.tentoken.apps.TentokenConfig',
     'csvimport.app.CSVImportConf',
 
     # Your stuff: custom apps go here

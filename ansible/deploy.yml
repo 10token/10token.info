@@ -39,7 +39,7 @@
         command=collectstatic
         app_path={{ install_root }}/{{ project_name }}
         pythonpath={{ pythonpath }}
-        virtualenv={{ settings }}
+        virtualenv={{ virtualenv }}
         settings={{ settings }}
 
     - name: copy gunicorn config

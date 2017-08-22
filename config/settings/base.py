@@ -54,6 +54,8 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
 
 # Apps specific for this project go here.
@@ -268,6 +270,7 @@ AUTHENTICATION_BACKENDS = [
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQURIED=True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
@@ -301,3 +304,33 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+SOCIALACCOUNT_PROVIDERS = {
+
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+             'id',
+             'email',
+             'name',
+             'first_name',
+             'last_name',
+             'verified',
+             'locale',
+             'timezone',
+             'link',
+             'gender',
+             'updated_time' ],
+         'EXCHANGE_TOKEN': True,
+         #  'LOCALE_FUNC': 'path.to.callable',
+         'VERIFIED_EMAIL': False,
+         'VERSION': 'v2.10'}
+
+}
+
+# #facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '2046327042254342'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='6e8c179f70f246a6eae89af339323b78' #app key
+
+LOGIN_REDIRECT_URL = "/"

@@ -68,3 +68,5 @@ staticfiles/
 .cache/
 
 venv/
+
+10token.info/config/10token.sqlite3

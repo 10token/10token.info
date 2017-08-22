@@ -61,7 +61,7 @@ server_name: 10token.info
 # }
 db_name: tentoken
 db_user: tentoken
-db_password: tentoken
+db_password: wY5tpj4Th4NfP2JAg7rH
 
 # apt packages, you should not need to change this unless you have packages
 # listed in your requirements.txt that depend on system packages.

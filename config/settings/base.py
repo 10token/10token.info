@@ -127,6 +127,27 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # DATABASES = {
 #     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'tentoken',
+#         'USER': 'tentoken',
+#         'HOST': 'postgres',
+#         'PORT': 5432,
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ['POSTGRES_USER'],
+#         'USER': os.environ['POSTGRES_USER'],
+#         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+#         # 'HOST': os.environ['POSTGRES_HOST'],
+#         'PORT': 5432
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, '10token.sqlite3'),
 #     }

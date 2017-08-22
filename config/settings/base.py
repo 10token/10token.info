@@ -120,17 +120,17 @@ MANAGERS = ADMINS
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-# DATABASES = {
-#     'default': env.db('DATABASE_URL', default='postgres:///10token'),
-# }
-# DATABASES['default']['ATOMIC_REQUESTS'] = True
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '10token.sqlite3'),
-    }
+    'default': env.db('DATABASE_URL', default='postgres:///tentoken'),
 }
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, '10token.sqlite3'),
+#     }
+# }
 
 
 

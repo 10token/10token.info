@@ -72,7 +72,19 @@ To run a celery worker:
 Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
 
+Postgres
 
+https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
+
+  CREATE DATABASE tentoken;
+
+  CREATE USER tentoken WITH PASSWORD 'tentoken';
+
+  ALTER ROLE tentoken SET client_encoding TO 'utf8';
+  ALTER ROLE tentoken SET default_transaction_isolation TO 'read committed';
+  ALTER ROLE tentoken SET timezone TO 'UTC';
+
+  GRANT ALL PRIVILEGES ON DATABASE tentoken TO tentoken;
 
 
 Deployment
@@ -88,6 +100,3 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
-
-
-

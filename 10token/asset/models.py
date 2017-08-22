@@ -32,7 +32,6 @@ class Asset(models.Model):
 
 
 
-
     # author_email = models.EmailField('Author email', max_length=75, blank=True)
     # imported = models.BooleanField(default=False)
     # published = models.DateField('Published', blank=True, null=True)

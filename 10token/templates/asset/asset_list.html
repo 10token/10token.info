@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content%}
+
+<div class="container">
+
+    <h2>Asset list</h2>
+
+    <form class="form-inline" action="" method="GET">
+        {{ form }}
+        <button class="btn" type="submit">Search</button>
+        </fieldset>
+    </form>
+
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td><a href="token/{{ object.id }}">{{ object.name }}</a></td>
+            <td>{{object.description}}</td>
+            <td>{{object.amount}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+<div class="pagination">
+    <span class="page-links">
+        {% if assets_list.has_previous %}
+            <a href="{{ request.path }}?page={{ assets_list.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="page-current">
+            Page {{ assets_list.number }} of {{ assets_list.paginator.num_pages }}.
+        </span>
+        {% if assets_list.has_next %}
+            <a href="{{ request.path }}?page={{ assets_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}

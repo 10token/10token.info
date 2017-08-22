@@ -1,10 +1,13 @@
 from django.core.urlresolvers import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
-
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from .models import Asset
 from django.utils import timezone
+
+from django.shortcuts import render_to_response
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+
+
 
 # def assets_list(request):
 #     assets = Asset.objects.filter().order_by('published_date')
@@ -12,11 +15,10 @@ from django.utils import timezone
 
 class assets_list(LoginRequiredMixin, ListView):
     model = Asset
-
     slug_field = 'name'
     slug_url_kwarg = 'name'
+    paginate_by = 10
 
-    paginate_by = 100
 
     # def get_context_data(self, **kwargs):
     #     context = super(assets_list, self).get_context_data(**kwargs)

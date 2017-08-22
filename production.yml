@@ -1,8 +1,8 @@
 version: '2'
 
 volumes:
-  postgres_data: {}
-  postgres_backup: {}
+  # postgres_data: {}
+  # postgres_backup: {}
   caddy: {}
 
 services:
@@ -11,17 +11,17 @@ services:
       context: .
       dockerfile: ./compose/django/Dockerfile
     depends_on:
-      - postgres
+      # - postgres
       - redis
     command: /gunicorn.sh
     env_file: .env
 
-  postgres:
-    build: ./compose/postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
-    env_file: .env
+  # postgres:
+  #   build: ./compose/postgres
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #     - postgres_backup:/backups
+  #   env_file: .env
 
   caddy:
     build: ./compose/caddy
@@ -37,23 +37,22 @@ services:
   redis:
     image: redis:3.0
 
-  celeryworker:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile
-    env_file: .env
-    depends_on:
-     - postgres
-     - redis
-    command: celery -A 10token.taskapp worker -l INFO
-
-  celerybeat:
-    build:
-      context: .
-      dockerfile: ./compose/django/Dockerfile
-    env_file: .env
-    depends_on:
-      - postgres
-      - redis
-    command: celery -A 10token.taskapp beat -l INFO
-
+  # celeryworker:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/django/Dockerfile
+  #   env_file: .env
+  #   depends_on:
+  #    - postgres
+  #    - redis
+  #   command: celery -A 10token.taskapp worker -l INFO
+  #
+  # celerybeat:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/django/Dockerfile
+  #   env_file: .env
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   command: celery -A 10token.taskapp beat -l INFO

@@ -79,3 +79,5 @@ Deployment
 ----------
 
 The following details how to deploy this application.
+
+ansible-playbook -i hosts provision.yml

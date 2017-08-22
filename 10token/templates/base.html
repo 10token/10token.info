@@ -1,6 +1,7 @@
 {% load staticfiles i18n compress%}<!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}10token{% endblock title %}</title>
@@ -63,6 +64,10 @@
               </li>
             {% endif %}
           </ul>
+          <div> {% load socialaccount %}
+{% providers_media_js %}
+<a href="{% provider_login_url "facebook" method="js_sdk" %}">Login Button image</a>
+ </div>
         </div>
       </nav>
 
@@ -103,4 +108,3 @@
     {% endblock javascript %}
   </body>
 </html>
- 

@@ -32,13 +32,15 @@
         app_path={{ install_root }}/{{ project_name }}
         pythonpath={{ pythonpath }}
         virtualenv={{ virtualenv }}
+        settings={{ settings }}
 
     - name: django collectstatic
       django_manage:
         command=collectstatic
         app_path={{ install_root }}/{{ project_name }}
         pythonpath={{ pythonpath }}
-        virtualenv={{ virtualenv }}
+        virtualenv={{ settings }}
+        settings={{ settings }}
 
     - name: copy gunicorn config
       template: src=files/gunicorn.j2 dest=/etc/init/gunicorn.conf

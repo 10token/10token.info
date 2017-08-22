@@ -18,12 +18,14 @@ install_root: /srv
 # ├── manage.py
 # └── requirements.txt
 # the correct wsgi_module value would be `hello.wsgi`
-wsgi_module: tentoken.wsgi
+wsgi_module: config.wsgi
 
 # any directories that need to be added to the PYTHONPATH.
 pythonpath: "{{ install_root }}/{{ project_name }}"
 
 virtualenv: "{{ install_root }}/{{ project_name }}/venv"
+
+settings: "config.settings.production"
 
 # the git repository URL for the project
 # project_repo: git@github.com:fortunto2/life2film_backend.git

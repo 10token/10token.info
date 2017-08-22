@@ -16,7 +16,7 @@
 
     - name: install python packages
       pip:
-        requirements={{ install_root }}/{{ project_name }}/requirements.txt
+        requirements={{ install_root }}/{{ project_name }}/requirements/production.txt
         virtualenv={{ virtualenv }}
       notify:
       - restart gunicorn

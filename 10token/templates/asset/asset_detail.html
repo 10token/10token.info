@@ -11,8 +11,10 @@
 
         <h1>{{ asset.name }}</h1>
         <p>{{ asset.description|linebreaksbr }}</p>
-        <p>token id: {{ asset.token_id }}</p>
-        <p>sender id: {{ asset.sender_id }}</p>
+        <p>Asset id: <a href="https://wavesexplorer.com/tx/{{ asset.token_id }}">{{ asset.token_id }}</a></p>
+        <p>Issuer id: <a href="https://wavesexplorer.com/address/{{ asset.sender_id }}">{{ asset.sender_id }}</a></p>
+        <p>amount: {{ asset.amount }}</p>
+        <p>reissuable: {{ asset.reissuable }}</p>
         <p>{{ asset.created_date }}</p>
 
 

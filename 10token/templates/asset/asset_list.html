@@ -28,19 +28,29 @@
 
 </div>
 
-<div class="pagination">
-    <span class="page-links">
-        {% if assets_list.has_previous %}
-            <a href="{{ request.path }}?page={{ assets_list.previous_page_number }}">previous</a>
+
+{% if is_paginated %}
+<nav>
+  <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+                <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+        </li>
         {% endif %}
-        <span class="page-current">
-            Page {{ assets_list.number }} of {{ assets_list.paginator.num_pages }}.
-        </span>
-        {% if assets_list.has_next %}
-            <a href="{{ request.path }}?page={{ assets_list.next_page_number }}">next</a>
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+        </li>
         {% endif %}
-    </span>
-</div>
+      </ul>
+
+      <span class="page-current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+</nav>
+{% endif %}
+
 
 
 {% endblock %}

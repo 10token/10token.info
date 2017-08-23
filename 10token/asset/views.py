@@ -32,7 +32,7 @@ class AssetSearchList(SearchListView):
 
 
 
-class asset_detail(LoginRequiredMixin, DetailView):
+class asset_detail(DetailView):
     model = Asset
     # These next two lines tell the view to index lookups by username
     slug_field = 'name'

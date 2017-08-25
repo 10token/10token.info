@@ -19,7 +19,7 @@
         </tr>
         {% for object in object_list %}
         <tr>
-            <td><a href="token/{{ object.id }}">{{ object.name }}</a></td>
+            <td><a href={% url 'assets:detail' object.pk %}>{{ object.name }}</a></td>
             <td>{{object.description}}</td>
             <td>{{object.amount}}</td>
         </tr>

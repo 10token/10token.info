@@ -9,6 +9,7 @@ class Asset(models.Model):
     reissuable = models.BooleanField()
     token_id = models.CharField('Token id', max_length=100)
     sender_id = models.CharField('Sender id', max_length=100)
+    selected = models.BooleanField(default=False)
 
     created_date = models.DateTimeField(
             default=timezone.now)

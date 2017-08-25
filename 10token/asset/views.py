@@ -23,17 +23,18 @@ class AssetSearchList(SearchListView):
     filter_class = AssetFilter
 
 
-# class assets_list(LoginRequiredMixin, ListView):
-#     # model = Asset
-#     slug_field = 'name'
-#     slug_url_kwarg = 'name'
-#     # paginate_by = 10
+class AssetSelected(ListView):
+    model = Asset
+    # slug_field = 'name'
+    # slug_url_kwarg = 'name'
+    queryset = Asset.objects.filter(selected=True)
+    template_name = 'asset/asset_list.html'
+    paginate_by = 10
 
 
 
-
-class asset_detail(DetailView):
+class AssetDetail(DetailView):
     model = Asset
     # These next two lines tell the view to index lookups by username
-    slug_field = 'name'
-    slug_url_kwarg = 'name'
+    slug_field = 'token_id'
+    slug_url_kwarg = 'token_id'

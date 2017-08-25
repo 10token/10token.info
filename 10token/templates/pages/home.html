@@ -1,1 +1,21 @@
 {% extends "base.html" %}
+
+{% load static i18n %}
+{% block title %}Members{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h2>Asset list</h2>
+
+    <table class="table table-bordered table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+
+    </table>
+
+</div>
+{% endblock content %}

@@ -5,14 +5,14 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-# from asset.views import AssetSearchList
+from asset.views import AssetSelected
 
 
 urlpatterns = [
     # url(r'^$', AssetSearchList.as_view(), name='home'),
 
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
-    # url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^$', AssetSelected.as_view(template_name='pages/home.html'), name='home'),
+    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
 
 
     # Django Admin, use {% url 'admin:index' %}
@@ -25,7 +25,7 @@ urlpatterns = [
 
 
     #INCLIDE tentoken
-    url(r'^waves/', include('asset.urls', namespace='assets')),
+    url(r'^asset/', include('asset.urls', namespace='assets')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

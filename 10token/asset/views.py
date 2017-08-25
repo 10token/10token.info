@@ -25,13 +25,18 @@ class AssetSearchList(SearchListView):
 
 class AssetSelected(ListView):
     model = Asset
+    context_object_name = 'asset'
     # slug_field = 'name'
     # slug_url_kwarg = 'name'
-    queryset = Asset.objects.filter(selected=True)
+    # queryset = Asset.objects.filter(selected=True)
     template_name = 'asset/asset_list.html'
     paginate_by = 10
 
-
+    def get_queryset(self):
+        """
+        Список наших объектов будет состоять лишь из отмеченных модераторами токенов
+        """
+        return Asset.objects.filter(selected=True)
 
 class AssetDetail(DetailView):
     model = Asset

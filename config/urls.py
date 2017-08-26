@@ -16,7 +16,7 @@ urlpatterns = [
     # User management
     url(r'^users/', include('10token.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
-    
+
 
 
     #INCLIDE tentoken

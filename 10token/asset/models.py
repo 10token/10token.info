@@ -15,7 +15,6 @@ class Asset(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
 
-
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -26,7 +25,18 @@ class Asset(models.Model):
     def get_absolute_url(self):
         return reverse('assets:detail', kwargs={'name': self.name})
 
+class AssetTop(models.Model):
+    asset = models.OneToOneField(Asset) #Привязка к Asset (выше) 1 to 1
 
+    сonfirmed = models.BooleanField()
+    website	=  models.CharField('Website', max_length=100)
+    facebook = models.CharField('Facebook', max_length=100)
+    vk = models.CharField('Vk', max_length=100)
+    bitcointalk = models.CharField('Bitcointalk', max_length=100)
+    twitter = models.CharField('twitter', max_length=100)
+
+    def __str__(self):
+        return self.asset
 
 
 

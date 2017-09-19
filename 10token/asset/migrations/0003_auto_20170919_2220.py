@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='asset',
             name='token_id',
-            field=models.CharField(max_length=100, unique=True, verbose_name='Token id'),
+            field=models.CharField(max_length=100, verbose_name='Token id'),
         ),
     ]

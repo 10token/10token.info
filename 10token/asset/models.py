@@ -7,7 +7,7 @@ class Asset(models.Model):
     amount = models.CharField('Amount', max_length=100)
     description = models.TextField('Description')
     reissuable = models.BooleanField()
-    token_id = models.CharField('Token id', max_length=100,unique=True)
+    token_id = models.CharField('Token id', max_length=100 )
     sender_id = models.CharField('Sender id', max_length=100)
     selected = models.BooleanField(default=False)
 

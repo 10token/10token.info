@@ -18,7 +18,7 @@ import threading
 
 from django.core.management.base import BaseCommand, CommandError
 
-from asset.models import Asset
+from asset.models import Asset, Waves
 from django.db import IntegrityError
 
 
@@ -47,13 +47,17 @@ class Command(BaseCommand):
         ndays = 0
         count = 0
         last = requests.get('http://' + node + ':6869/blocks/height').json()['height']
-        last = 671965
+        print ('last ',last)
         prevdate = ''
         asset_txs={}
-        block_with_first_asset = 236967
-        block_with_first_asset = 670000
+        block_with_first_asset = 0
+        block_with_first_asset = Waves.objects.order_by('-id')[0].height - 100
+        print ('block_with_first_asset ',block_with_first_asset)
+
         data = pd.DataFrame()
         args = {}
+
+
 
 
         # In[4]:
@@ -129,15 +133,25 @@ class Command(BaseCommand):
 
 # name','amount','description','reissuable','token_id','sender_id'
         for key,value in asset_dict.items():
-            print (key,value)
             asset_row = Asset(**asset_dict[key])
 
-            asset_row.save()
+            try:
+                asset_row.save()
+                print (asset_row.token_id,asset_row.name)
+
+            except IntegrityError:
+                print(str(asset_row.token_id) +' -skip')
 
 
 
 
 
+        waves_height = Waves(
+            height = last,
+            )
+        print(waves_height.__dict__)
+        waves_height.save()
+        print(waves_height.id)
 
 # выводит что все нормально
         self.stdout.write(self.style.SUCCESS('Successfully ' ))

@@ -64,7 +64,7 @@ LOCAL_APPS = [
     '10token.users.apps.UsersConfig',
     'asset',
     # '10token.tentoken.apps.TentokenConfig',
-    'csvimport.app.CSVImportConf',
+    # 'csvimport.app.CSVImportConf',
 
     # Your stuff: custom apps go here
 

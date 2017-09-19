@@ -26,3 +26,13 @@ class Asset(models.Model):
 
     def get_absolute_url(self):
         return reverse('assets:detail', kwargs={'token_id': self.token_id})
+
+
+class Waves(models.Model):
+    """docstring for Waves."""
+    height = models.IntegerField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+
+    def __str__(self):
+        return self.height

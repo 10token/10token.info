@@ -100,3 +100,9 @@ Docker
 See detailed `cookiecutter-django Docker documentation`_.
 
 .. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+
+
+CRONTAB
+
+add
+30 * * * * docker-compose -f production.yml run -e env -d django ./manage.py parse_assets

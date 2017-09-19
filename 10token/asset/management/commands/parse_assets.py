@@ -50,8 +50,14 @@ class Command(BaseCommand):
         print ('last ',last)
         prevdate = ''
         asset_txs={}
-        block_with_first_asset = 0
-        block_with_first_asset = Waves.objects.order_by('-id')[0].height - 100
+
+        wheight = Waves.objects.order_by('-id')
+        if height:
+            block_with_first_asset = wheight[0].height - 100
+        else:
+            block_with_first_asset = 0        
+
+
         print ('block_with_first_asset ',block_with_first_asset)
 
         data = pd.DataFrame()
